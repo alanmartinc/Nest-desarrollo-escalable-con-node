@@ -1,12 +1,10 @@
-import './style.css'
-import { setupCounter } from './counter'
+import './style.css';
+import { name, age } from './bases/01-types';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <div class="card">
-      <button id="counter" type="button"></button>
+      <h1>Soy ${name}, tengo ${age} años</h1>
     </div>
   </div>
 `
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
