@@ -1,4 +1,4 @@
-import { charmander } from './bases/04-injection';
+import { charmander } from './bases/05-decorators';
 import './style.css';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
