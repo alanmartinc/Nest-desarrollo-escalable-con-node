@@ -1,10 +1,10 @@
 import './style.css';
-import { name, age } from './bases/01-types';
+import { bulbasaur } from './bases/02-objects';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <div class="card">
-      <h1>Soy ${name}, tengo ${age} años</h1>
+      <h1>Hello ${bulbasaur.name} !!!</h1>
     </div>
   </div>
 `
