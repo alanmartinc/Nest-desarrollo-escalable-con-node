@@ -21,6 +21,7 @@ export class Pokemon {
         console.log(`${this.name}, ${this.name}`);
     }
 
+    // METODOS ASINCRONICOS
     async getMoves(): Promise<Move[]> {
         const { data } = await axios.get<PokeapiResponse>('https://pokeapi.co/api/v2/pokemon/4');
 
