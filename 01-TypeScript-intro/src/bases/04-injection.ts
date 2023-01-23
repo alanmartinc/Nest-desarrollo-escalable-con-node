@@ -1,5 +1,5 @@
-import { Move } from '../interfaces/pokeapi-response.interface';
-import { PokeApiAdapter } from '../api/pokeApi.adapter';
+import { Move, PokeapiResponse } from '../interfaces/pokeapi-response.interface';
+import { PokeApiAxiosAdapter, PokeApiFetchAdapter } from '../api/pokeApi.adapter';
 
 export class Pokemon {
     // GETTERS
@@ -12,7 +12,7 @@ export class Pokemon {
         public name: string,
 
         // Todo: inyectar dependencias
-        private readonly http: PokeApiAdapter
+        private readonly http: PokeApiAxiosAdapter
     ) {}
 
     // METODOS
@@ -25,7 +25,7 @@ export class Pokemon {
     }
 
     async getMoves(): Promise<Move[]> {
-        const data = await this.http.get('https://pokeapi.co/api/v2/pokemon/4');
+        const data = await this.http.get<PokeapiResponse>('https://pokeapi.co/api/v2/pokemon/4');
 
         console.log(data.moves);
 
@@ -33,9 +33,10 @@ export class Pokemon {
     }
 }
 
-const pokeApi = new PokeApiAdapter();
+const pokeApiAxios = new PokeApiAxiosAdapter();
+const pokeApiFetch = new PokeApiFetchAdapter();
 
-export const charmander = new Pokemon(1, 'Charmander', pokeApi); 
+export const charmander = new Pokemon(1, 'Charmander', pokeApiFetch); 
 
 charmander.name = 'Mew';
 
