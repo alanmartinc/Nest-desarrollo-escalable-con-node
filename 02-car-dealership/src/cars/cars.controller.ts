@@ -8,6 +8,7 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { CarsService } from './cars.service';
 
 // Controlador: Escuchan la solicitud y emiten una respuesta
@@ -25,7 +26,7 @@ export class CarsController {
 
   @Get(':id')
   // Pipes: Transforma la data recibida
-  getCarById(@Param('id', ParseIntPipe) id: number) {
+  getCarById(@Param('id') id: string) {
     return this.CarsService.findOneById(id);
   }
 
