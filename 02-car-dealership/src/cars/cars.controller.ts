@@ -1,19 +1,20 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { CarsService } from './cars.service';
 
-// Escuchan la solicitud y emiten una respuesta
+// Controlador: Escuchan la solicitud y emiten una respuesta
 @Controller('cars')
 export class CarsController {
-  // Inyeccion de dependecias para usar los datos del servicio
+  // Inyeccion de Dependecias: Usan los datos del servicio (CarsService)
   constructor(private readonly CarsService: CarsService) {}
   @Get()
   getAllCars() {
-    // Retorna todos los carros
+    // findAll: Retorna todos los carros
     return this.CarsService.findAll();
   }
 
   @Get(':id')
-  getCarById(@Param('id') id: string) {
-    return this.CarsService.findOneById(+id);
+  // Pipes: Transforma la data recibida
+  getCarById(@Param('id', ParseIntPipe) id: number) {
+    return this.CarsService.findOneById(id);
   }
 }
