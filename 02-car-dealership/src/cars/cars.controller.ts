@@ -17,8 +17,6 @@ import { CreateCarDto } from './dto/create-car.dto';
 
 // Controlador: Escuchan la solicitud y emiten una respuesta
 @Controller('cars')
-// ValidationPipe: Esta a nivel del controlador y todos sus metodos se van a validar con el "validationPipe"
-@UsePipes(ValidationPipe)
 export class CarsController {
   // Inyeccion de Dependecias: Usan los datos del servicio (CarsService)
   constructor(private readonly CarsService: CarsService) {}
