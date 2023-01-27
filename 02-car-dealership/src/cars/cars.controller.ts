@@ -8,6 +8,8 @@ import {
   ParseUUIDPipe,
   Patch,
   Post,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { CarsService } from './cars.service';
@@ -15,6 +17,8 @@ import { CreateCarDto } from './dto/create-car.dto';
 
 // Controlador: Escuchan la solicitud y emiten una respuesta
 @Controller('cars')
+// ValidationPipe: Esta a nivel del controlador y todos sus metodos se van a validar con el "validationPipe"
+@UsePipes(ValidationPipe)
 export class CarsController {
   // Inyeccion de Dependecias: Usan los datos del servicio (CarsService)
   constructor(private readonly CarsService: CarsService) {}
