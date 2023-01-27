@@ -11,6 +11,7 @@ import {
 } from '@nestjs/common';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { CarsService } from './cars.service';
+import { CreateCarDto } from './dto/create-car.dto';
 
 // Controlador: Escuchan la solicitud y emiten una respuesta
 @Controller('cars')
@@ -32,8 +33,8 @@ export class CarsController {
   }
 
   @Post()
-  createCar(@Body() body: any) {
-    return body;
+  createCar(@Body() createCarDto: CreateCarDto) {
+    return createCarDto;
   }
 
   @Patch(':id')
