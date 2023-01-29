@@ -7,5 +7,6 @@ import { CarsService } from './cars.service';
   controllers: [CarsController],
   // Todos los servicios son providers
   providers: [CarsService],
+  exports: [CarsService],
 })
 export class CarsModule {}
